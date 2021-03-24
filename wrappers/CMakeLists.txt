@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 2.8.12)
+project(madrich_solver)
+set(PYBIND11_CPP_STANDARD /std:c++latest)
+
+add_subdirectory(pybind11)
+pybind11_add_module(base_model bindings/Base_model/wrapper_base_model.cpp)
+pybind11_add_module(generators bindings/Generators/wrapper_generators.cpp)
+pybind11_add_module(hvrp_main bindings/Hvrp_main/wrapper_hvrp_main.cpp)
+pybind11_add_module(route_utils bindings/Route_utils/wrapper_route_utils.cpp)
+pybind11_add_module(rvrp_main bindings/Rvrp_main/wrapper_rvrp_main.cpp)
+pybind11_add_module(rvrp_model bindings/Rvrp_model/wrapper_rvrp_model.cpp)
+pybind11_add_module(rvrp_problem bindings/Rvrp_problem/wrapper_rvrp_problem.cpp)
+
+include_directories(../madrich)
+include_directories(../madrich/examples)
+include_directories(../madrich/local_search)
+include_directories(../madrich/local_search/operators)
+include_directories(../madrich/local_search/rvrp)
